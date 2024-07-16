@@ -1,11 +1,12 @@
-import { Button } from '@material-tailwind/react';
+import { Button, Card, Checkbox, Typography } from '@material-tailwind/react';
+import { Input } from 'postcss';
 import React from 'react';
 import { FaGoogle } from 'react-icons/fa';
 
 const Home = () => {
     return (
         <div className='my-5'>
-            <Button className='w-full bg-teal-900 flex items-center gap-2 font-normal capitalize justify-center'><FaGoogle />SignIn with Google</Button>
+            <h2 className='text-center'>Home</h2>
         </div>
     );
 };
