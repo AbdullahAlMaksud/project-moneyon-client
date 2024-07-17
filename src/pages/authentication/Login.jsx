@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
@@ -19,8 +19,10 @@ const Login = () => {
             return response.data;
         },
         onSuccess: (data) => {
-            localStorage.setItem('user', JSON.stringify(data));
-            setUser(data);
+            const { name, mobileNumber, balance, photoURL, role } = data;
+            const userInfo = { name, mobileNumber, balance, photoURL, role };
+            localStorage.setItem('user', JSON.stringify(userInfo));
+            setUser(userInfo);
             toast.success('Login Successful');
             navigate('/');
         },
@@ -41,7 +43,7 @@ const Login = () => {
     };
 
     return (
-        <div className="bg-teal-300 my-5 rounded-md p-10 flex items-center justify-center text-xs">
+        <div className="bg-teal-300 my-5 rounded-md p-10 flex flex-col items-center justify-center text-xs">
             <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
                 <div className='grid grid-cols-5'>
                     <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Email/Mobile: </label>
@@ -67,6 +69,7 @@ const Login = () => {
                     className='bg-teal-800 py-1 text-white rounded-sm w-full'
                     type="submit">Login</button>
             </form>
+            <small className='pt-2'>Don't have an account? <Link to={'/register'} className='font-bold text-blue-900'>Register here!</Link></small>
         </div>
     );
 };

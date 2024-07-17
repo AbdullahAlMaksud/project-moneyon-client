@@ -1,28 +1,34 @@
-import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/home/Home";
-import MainLayout from "../layout/MainLayout";
-import Login from "../pages/authentication/Login";
-import Register from "../pages/authentication/Register";
+import { createBrowserRouter } from 'react-router-dom';
+import Home from '../pages/home/Home';
+import MainLayout from '../layout/MainLayout';
+import Register from '../pages/authentication/Register';
+import Login from '../pages/authentication/Login';
+import ProtectedRoute from './ProtectedRoute';
+// import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: '/',
         element: <MainLayout />,
         children: [
             {
-                path: "/",
-                element: <Home />
+                path: '/',
+                element: (
+                    <ProtectedRoute>
+                        <Home />
+                    </ProtectedRoute>
+                )
             },
             {
-                path: "/register",
+                path: '/register',
                 element: <Register />
             },
             {
-                path: "/login",
+                path: '/login',
                 element: <Login />
             }
         ]
     },
 ]);
 
-export default router
+export default router;
