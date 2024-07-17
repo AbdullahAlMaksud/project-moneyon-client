@@ -14,17 +14,20 @@ import { PiChatTeardropSlashDuotone } from 'react-icons/pi';
 const UserHome = () => {
     return (
         <div className='my-5'>
-            <h2 className='text-center mb-5 font-ubuntu text-xl text-tealnew-800'>User Home</h2>
-
-            <div className='grid sm:grid-cols-3 lg:grid-cols-6 gap-2'>
-                <MenuButton icon={FaMoneyBillTransfer} name={'Send Money'}></MenuButton>
-                <MenuButton icon={FaMoneyBill1Wave} name={'Cash-Out'}></MenuButton>
-                <MenuButton icon={FaMoneyBillAlt} name={'Cash-In'}></MenuButton>
-                <MenuButton icon={FaMoneyBills} name={'Transiction History'}></MenuButton>
-                <MenuButton icon={FaMoneyBillWheat} name={'Balance'}></MenuButton>
-                <MenuButton icon={CgMore} name={'More'}></MenuButton>
-
+            <div className='border-b border-tealnew-900 mb-5 flex justify-center rounded-md'>
+                <h2 className='text-center font-ubuntu bg-tealnew-900 w-fit text-xl text-white px-3 rounded-t-md'>User</h2>
             </div>
+            <section className='flex items-center'>
+                <div className='grid sm:grid-cols-3 lg:grid-cols-6 gap-2 mx-auto'>
+                    <MenuButton icon={FaMoneyBillTransfer} name={'Send Money'}></MenuButton>
+                    <MenuButton icon={FaMoneyBill1Wave} name={'Cash-Out'}></MenuButton>
+                    <MenuButton icon={FaMoneyBillAlt} name={'Cash-In'}></MenuButton>
+                    <MenuButton icon={FaMoneyBills} name={'Transiction History'}></MenuButton>
+                    <MenuButton icon={FaMoneyBillWheat} name={'Balance'}></MenuButton>
+                    <MenuButton icon={CgMore} name={'More'}></MenuButton>
+
+                </div>
+            </section>
         </div>
     );
 };
