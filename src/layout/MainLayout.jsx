@@ -8,7 +8,7 @@ const MainLayout = () => {
             <div className='fixed w-full h-40 bg-tealnew-900 rounded-b-xl'>
                 <Navigation />
             </div>
-            <div className='pt-20 w-11/12 mx-auto'>
+            <div className='pt-40 w-11/12 mx-auto'>
                 <Outlet />
             </div>
         </>
