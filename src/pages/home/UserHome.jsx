@@ -18,7 +18,7 @@ const UserHome = () => {
                 <h2 className='text-center font-ubuntu bg-tealnew-900 w-fit text-xl text-white px-3 rounded-t-md'>User</h2>
             </div>
             <section className='flex items-center'>
-                <div className='grid sm:grid-cols-3 lg:grid-cols-6 gap-2 mx-auto'>
+                <div className='flex items-center justify-center flex-wrap gap-2'>
                     <MenuButton icon={FaMoneyBillTransfer} name={'Send Money'}></MenuButton>
                     <MenuButton icon={FaMoneyBill1Wave} name={'Cash-Out'}></MenuButton>
                     <MenuButton icon={FaMoneyBillAlt} name={'Cash-In'}></MenuButton>

@@ -23,7 +23,7 @@ const Navigation = () => {
                                 <h2 className='text-[.5rem] -mb-1.5'>{user?.mobileNumber}</h2>
                                 <h2 className='text-xl'>{user?.name}</h2>
                                 {
-                                    !balance ? <span onClick={handleShowBalance} className='px-5 py-0.5 bg-white border rounded-full text-black hover:cursor-pointer duration-300 ease-linear'>Show Balance</span> : <span onClick={handleShowBalance} className='px-5 py-0.5 bg-transparent rounded-full text-white border hover:cursor-pointer duration-300 ease-linear'>Balance: {user?.balance} BDT</span>
+                                    !balance ? <span onClick={handleShowBalance} className='px-5 py-0.5 bg-white border rounded-full text-black hover:cursor-pointer duration-300 ease-linear w-fit'>Show Balance</span> : <span onClick={handleShowBalance} className='px-5 py-0.5 bg-transparent rounded-full text-white border w-fit hover:cursor-pointer duration-300 ease-linear'>Balance: {user?.balance} BDT</span>
                                 }
                             </div>
                         </div>

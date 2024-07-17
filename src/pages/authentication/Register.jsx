@@ -47,7 +47,7 @@ const Register = () => {
                 const photoURL = await uploadImage(file);
                 newUser.photoURL = photoURL;
             } else {
-                newUser.photoURL = 'DEFAULT_PHOTO_URL'; // Replace with your default photo URL
+                newUser.photoURL = 'https://i.ibb.co/1bF6zxK/user.png'
             }
             const response = await axios.post(`${import.meta.env.VITE_SERVER}/api/auth/register`, newUser);
             return response.data;
@@ -56,7 +56,7 @@ const Register = () => {
             localStorage.setItem('user', JSON.stringify(data));
             toast.success('Account Created Successfully');
             queryClient.invalidateQueries(['user']);
-            navigate('/login'); // Redirect to login page after successful registration
+            navigate('/login');
         },
         onError: (error) => {
             const errorMessage = error.response?.data?.message || error.message;
@@ -76,51 +76,55 @@ const Register = () => {
 
     return (
         <div className="bg-teal-300 my-5 rounded-md p-10 flex flex-col items-center justify-center text-xs">
-            <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Name: </label>
+            <form onSubmit={handleSubmit} className='flex w-full flex-col gap-3'>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>Name </label>
                     <input
-                        className='w-full bg-white active:bg-white focus:outline-none border-b col-span-4 px-2 py-1 rounded-r-sm'
+                        className='w-full bg-transparent focus:outline-none border-l-0 border border-t-0 px-2 text-xs rounded-tr-xl placeholder-gray-800'
                         type="text"
                         name="name"
+                        placeholder='Enter your name'
                         value={formData.name}
                         onChange={handleChange}
                     />
                 </div>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>PIN</label>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>PIN</label>
                     <input
-                        className=' bg-white active:bg-white focus:outline-none border-b col-span-4 px-2 w-full py-1 rounded-r-sm'
-                        type="password"
+                        className='w-full bg-transparent focus:outline-none border border-t-0 px-2 text-xs border-l-0 rounded-tr-xl placeholder-gray-800'
+                        type="number"
                         name="pin"
+                        placeholder='Enter 5 digit pin'
                         value={formData.pin}
                         onChange={handleChange}
                     />
                 </div>
-                <div className='grid grid-cols-5 '>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Mobile Number</label>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>Mobile Number</label>
                     <input
-                        className='w-full bg-white active:bg-white focus:outline-none border-b col-span-4 px-2 py-1 rounded-r-sm'
+                        className='w-full bg-transparent focus:outline-none border-l-0 border border-t-0 px-2 text-xs rounded-tr-xl placeholder-gray-800'
                         type="text"
+                        placeholder='Enter your mobile number'
                         name="mobileNumber"
                         value={formData.mobileNumber}
                         onChange={handleChange}
                     />
                 </div>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Email</label>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>Email</label>
                     <input
-                        className='w-full bg-white focus:outline-none border-b col-span-4 px-2 text-xs'
+                        className='w-full border-l-0 bg-transparent focus:outline-none border border-t-0 px-2 text-xs rounded-tr-xl placeholder-gray-800'
                         type="email"
                         name="email"
+                        placeholder='Enter your email'
                         value={formData.email}
                         onChange={handleChange}
                     />
                 </div>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Role</label>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md w-40 md:w-32 px-2 rounded-tr-none'>Role</label>
                     <select
-                        className='w-full bg-white focus:outline-none border-b col-span-4 px-2 text-xs'
+                        className='w-full border-l-0 bg-transparent focus:outline-none border border-t-0 px-2 text-xs rounded-tr-xl'
                         name="role"
                         value={formData.role}
                         onChange={handleChange}
@@ -129,9 +133,11 @@ const Register = () => {
                         <option value="agent">Agent</option>
                     </select>
                 </div>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Photo</label>
-                    <div {...getRootProps()} className='bg-white col-span-4 px-2 py-1 rounded-r-sm border-b'>
+
+
+                <div className='flex flex-col'>
+                    <label className='bg-white  py-1 rounded-t-md px-2'>Photo</label>
+                    <div {...getRootProps()} className='bg-tealnew-600 w-full px-2 py-10 rounded-b-md border text-center text-white font-ubuntu'>
                         <input {...getInputProps()} />
                         <p>{file ? file.name : "Drag 'n' drop a file, or click to select one"}</p>
                     </div>

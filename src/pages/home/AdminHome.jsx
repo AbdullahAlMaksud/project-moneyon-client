@@ -10,12 +10,14 @@ const AdminHome = () => {
                 <h2 className='text-center font-ubuntu bg-orange-900 w-fit text-xl text-white px-3 rounded-t-md'>Admin</h2>
             </div>
 
-            <div className='grid sm:grid-cols-3 lg:grid-cols-6 gap-2'>
-                <MenuButton icon={FaMoneyBillTransfer} name={'User Management'}></MenuButton>
-                <MenuButton icon={FaMoneyBills} name={'All Transiction'}></MenuButton>
-                <MenuButton icon={FaMoneyBillWheat} name={'Balance'}></MenuButton>
-                <MenuButton icon={CgMore} name={'More'}></MenuButton>
-            </div>
+            <section className='flex items-center justify-center'>
+                <div className='flex flex-wrap gap-2 justify-center'>
+                    <MenuButton icon={FaMoneyBillTransfer} name={'User Management'}></MenuButton>
+                    <MenuButton icon={FaMoneyBills} name={'All Transiction'}></MenuButton>
+                    <MenuButton icon={FaMoneyBillWheat} name={'Balance'}></MenuButton>
+                    <MenuButton icon={CgMore} name={'More'}></MenuButton>
+                </div>
+            </section>
         </div>
     );
 };

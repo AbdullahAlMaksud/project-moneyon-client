@@ -43,23 +43,26 @@ const Login = () => {
     };
 
     return (
-        <div className="bg-teal-300 my-5 rounded-md p-10 flex flex-col items-center justify-center text-xs">
-            <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>Email/Mobile: </label>
+        <div className="bg-teal-300 my-5 rounded-md p-10 md:p-10 flex flex-col items-center justify-center text-xs">
+            <form onSubmit={handleSubmit} className='flex flex-col gap-3 w-full md:w-3/5'>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>Email/Mobile: </label>
                     <input
-                        className='w-full bg-transparent active:bg-transparent focus:outline-none border-b col-span-4 px-2 py-1 rounded-r-sm'
+                        className='w-full bg-transparent focus:outline-none border-l-0 border border-t-0 px-2 text-xs rounded-tr-xl placeholder-gray-800'
+
+                        placeholder='Enter your email or mobile number'
                         type="text"
                         name="emailOrMobile"
                         value={formData.emailOrMobile}
                         onChange={handleChange}
                     />
                 </div>
-                <div className='grid grid-cols-5'>
-                    <label className='bg-white col-span-1 py-1 rounded-l-sm px-2'>PIN</label>
+                <div className='flex'>
+                    <label className='bg-white col-span-1 py-1 rounded-t-md rounded-tr-none w-40 md:w-32 px-2'>PIN</label>
                     <input
-                        className=' bg-transparent active:bg-transparent focus:outline-none border-b col-span-4 px-2 w-full py-1 rounded-r-sm'
-                        type="password"
+                        className='w-full bg-transparent focus:outline-none border-l-0 border border-t-0 px-2 text-xs rounded-tr-xl placeholder-gray-800'
+                        type="number"
+                        placeholder='Enter your pin'
                         name="pin"
                         value={formData.pin}
                         onChange={handleChange}
